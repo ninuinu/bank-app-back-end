@@ -15,9 +15,7 @@ export function getTransactions(req: Request, res: Response) {
 export function getTransaction(req: Request, res: Response) {
   try {
     const transactionId = req.query.id;
-    const transaction = transactionsTable.filter(
-      (transaction) => transaction.id === Number(transactionId)
-    );
+    const transaction = transactionsService.getTransaction(Number(transactionId));
     return res.send(transaction);
   } catch (error: any) {
     return res.send(error);
