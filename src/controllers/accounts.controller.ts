@@ -7,3 +7,18 @@ export function getAccounts(req:Request, res:Response){
 export function getAccount(req:Request, res:Response){
     return null
 }
+
+// bonus
+export function updateAccountName(req:Request, res:Response){
+    return null
+}
+
+// bonus
+export function createAccount(req:Request, res:Response){
+    return null
+}
+
+// bonus
+export function deleteAccount(req:Request, res:Response){
+    return null
+}
