@@ -9,7 +9,7 @@ export const transactionsTable = [
     {
         date: "2021-12-31",
         account: 2022,
-        amount: -2424,
+        amount: 2424,
         counterparty: "Swedbank",
         id: 2
     },
