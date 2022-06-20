@@ -24,17 +24,9 @@ export const accountsTable = [
   {
     accountNumber: 2022,
     accountName: 'Semesterspar',
-
     balance: 6756,
     userId: 2451,
     currency: "USD",
-  },
-  {
-    accountNumber: 1337,
-    accountName: 'Buffert',
-    balance: 345,
-    userId: 2451,
-    currency: "EUR",
   },
   {
     accountNumber: 1337,
