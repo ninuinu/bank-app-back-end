@@ -14,7 +14,15 @@ export function getAccounts(req: Request, res: Response) {
 }
 
 export function getAccount(req: Request, res: Response) {
-  return null;
+  try {
+    const accountNumber = req.query.accountNumber;
+    const account = accountsTable.filter(
+        (account) => account.accountNumber === Number(accountNumber)
+    );
+    return res.send(account);
+  } catch (error: any) {
+    return res.send(error);
+  }
 }
 
 // bonus
