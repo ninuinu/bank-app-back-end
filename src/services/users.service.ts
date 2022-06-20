@@ -1,6 +1,6 @@
 import { usersTable } from "../database/users.table";
 
-export class usersService {
+export class UsersService {
   static database = usersTable;
 
   public static getUser(userId: number) {

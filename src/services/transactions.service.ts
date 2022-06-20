@@ -1,6 +1,6 @@
 import { transactionsTable } from "../database/transactions.table";
 
-export class transactionsService {
+export class TransactionsService {
   static database = transactionsTable;
 
   public static getTransactions(accountNumber: number) {

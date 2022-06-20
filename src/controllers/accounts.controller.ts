@@ -1,12 +1,11 @@
 import { Request, Response } from "express";
+import { AccountsService } from "../services/accounts.service";
 import { accountsTable } from "../database/accounts.table";
 
 export function getAccounts(req: Request, res: Response) {
   try {
     const userId = req.query.userId;
-    const accounts = accountsTable.filter(
-      (account) => account.userId === Number(userId)
-    );
+    const accounts = AccountsService.getAccounts(Number(userId));
     return res.send(accounts);
   } catch (error: any) {
     return res.send(error);
@@ -16,9 +15,7 @@ export function getAccounts(req: Request, res: Response) {
 export function getAccount(req: Request, res: Response) {
   try {
     const accountNumber = req.query.accountNumber;
-    const account = accountsTable.filter(
-      (account) => account.accountNumber === Number(accountNumber)
-    );
+    const account = AccountsService.getAccount(Number(accountNumber));
     return res.send(account);
   } catch (error: any) {
     return res.send(error);
