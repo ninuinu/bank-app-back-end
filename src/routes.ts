@@ -3,4 +3,6 @@ import {getTransaction, getTransactions} from "./controllers/transactions.contro
 
 export function routes(app: Express){
     app.get('/transactions', getTransactions);
+    app.get('/transaction', getTransaction);
+
 }

@@ -1,9 +1,13 @@
 import { Request, Response } from "express";
+import { transactionsTable } from "../database/transactions.table";
 
 export function getTransactions(req: Request, res: Response) {
   try {
     const accountNumber = req.query.accountNumber;
-    return res.send(accountNumber);
+    const transactions = transactionsTable.filter(
+      (transaction) => transaction.account === Number(accountNumber)
+    );
+    return res.send(transactions);
   } catch (error: any) {
     return res.send(error);
   }
@@ -11,9 +15,11 @@ export function getTransactions(req: Request, res: Response) {
 
 export function getTransaction(req: Request, res: Response) {
   try {
-    const transactionId = req.query.transactionId;
-    // fetch transaction
-    return null;
+    const transactionId = req.query.id;
+    const transaction = transactionsTable.filter(
+      (transaction) => transaction.id === Number(transactionId)
+    );
+    return res.send(transaction);
   } catch (error: any) {
     return res.send(error);
   }
