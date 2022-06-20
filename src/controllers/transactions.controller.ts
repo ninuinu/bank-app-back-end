@@ -1,12 +1,11 @@
 import { Request, Response } from "express";
 import { transactionsTable } from "../database/transactions.table";
+import {transactionsService} from "../services/transactions.service";
 
 export function getTransactions(req: Request, res: Response) {
   try {
     const accountNumber = req.query.accountNumber;
-    const transactions = transactionsTable.filter(
-      (transaction) => transaction.account === Number(accountNumber)
-    );
+    const transactions = transactionsService.getTransactions(Number(accountNumber));
     return res.send(transactions);
   } catch (error: any) {
     return res.send(error);
