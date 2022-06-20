@@ -12,8 +12,15 @@ export class AccountsService {
 
   public static getAccount(accountNumber: number) {
     const account = accountsTable.filter(
-      (account) => account.accountNumber === Number(accountNumber)
+      (account) => account.accountNumber === accountNumber
     );
     return account;
+  }
+
+  public static updateAccountName(accountNumber: number, newAccountName: string) {
+    const account = accountsTable.filter(
+      (account) => account.accountNumber === accountNumber
+    );
+    account[0].accountName = newAccountName;
   }
 }

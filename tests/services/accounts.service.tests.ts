@@ -1,4 +1,4 @@
-import { AccountsService } from "../src/services/accounts.service";
+import { AccountsService } from "../../src/services/accounts.service";
 import { expect } from "chai";
 
 describe("getAccount", function () {

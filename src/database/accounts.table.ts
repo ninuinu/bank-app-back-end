@@ -1,4 +1,4 @@
-export const accountsTable = [
+export let accountsTable = [
   {
     accountNumber: 12322,
     accountName: 'Lönekonto',

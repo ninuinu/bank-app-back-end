@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { AccountsService } from "../services/accounts.service";
+import { accountsTable } from "../database/accounts.table";
 
 export function getAccounts(req: Request, res: Response) {
   try {
@@ -23,6 +24,15 @@ export function getAccount(req: Request, res: Response) {
 
 // bonus
 export function updateAccountName(req: Request, res: Response) {
+  try {
+    const accountNumber = req.query.accountNumber;
+    const accountName = req.query.accountName;
+    AccountsService.updateAccountName(Number(accountNumber), String(accountName));
+  } catch (error: any) {
+    return res.send(error);
+  }
+
+
   return null;
 }
 

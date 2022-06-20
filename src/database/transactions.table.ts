@@ -1,4 +1,4 @@
-export const transactionsTable = [
+export let transactionsTable = [
   {
     date: "2021-12-31",
     account: 12322,

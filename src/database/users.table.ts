@@ -1,4 +1,4 @@
-export const usersTable = [
+export let usersTable = [
   {
     userId: 5462,
     personalNumber: "750341-9702",
