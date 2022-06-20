@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { transactionsTable } from "../database/transactions.table";
-import {transactionsService} from "../services/transactions.service";
+import { transactionsService } from "../services/transactions.service";
 
 export function getTransactions(req: Request, res: Response) {
   try {

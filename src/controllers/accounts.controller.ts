@@ -17,7 +17,7 @@ export function getAccount(req: Request, res: Response) {
   try {
     const accountNumber = req.query.accountNumber;
     const account = accountsTable.filter(
-        (account) => account.accountNumber === Number(accountNumber)
+      (account) => account.accountNumber === Number(accountNumber)
     );
     return res.send(account);
   } catch (error: any) {
