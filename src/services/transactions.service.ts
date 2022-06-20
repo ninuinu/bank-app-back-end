@@ -1,5 +1,6 @@
 import { transactionsTable } from "../database/transactions.table";
 
+
 export class TransactionsService {
   static database = transactionsTable;
 

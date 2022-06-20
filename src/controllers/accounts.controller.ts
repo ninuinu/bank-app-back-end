@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import { AccountsService } from "../services/accounts.service";
-import { accountsTable } from "../database/accounts.table";
 
 export function getAccounts(req: Request, res: Response) {
   try {

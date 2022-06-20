@@ -12,7 +12,7 @@ export class AccountsService {
 
   public static getAccount(accountNumber: number) {
     const account = accountsTable.filter(
-        (account) => account.accountNumber === Number(accountNumber)
+      (account) => account.accountNumber === Number(accountNumber)
     );
     return account;
   }

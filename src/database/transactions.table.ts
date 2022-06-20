@@ -35,4 +35,3 @@ export const transactionsTable = [
     id: 5,
   },
 ];
-
