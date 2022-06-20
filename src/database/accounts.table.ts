@@ -1,4 +1,12 @@
-export let accountsTable = [
+export interface AccountEntity {
+  accountNumber: number;
+  accountName: string;
+  balance: number;
+  userId: number;
+  currency: string;
+}
+
+export let accountsTable: AccountEntity[] = [
   {
     accountNumber: 12322,
     accountName: 'Lönekonto',

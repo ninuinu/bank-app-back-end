@@ -1,26 +1,27 @@
-import { accountsTable } from "../database/accounts.table";
+import { AccountEntity, accountsTable } from "../database/accounts.table";
 
 export class AccountsService {
-  static database = accountsTable;
+  static database: AccountEntity[] = accountsTable;
 
   public static getAccounts(userId: number) {
-    const accounts = this.database.filter(
-      (account) => account.userId === userId
+    return this.database.filter(
+      (account: AccountEntity) => account.userId === userId
     );
-    return accounts;
   }
 
   public static getAccount(accountNumber: number) {
-    const account = accountsTable.filter(
-      (account) => account.accountNumber === accountNumber
+    return this.database.filter(
+      (account: AccountEntity) => account.accountNumber === accountNumber
     );
-    return account;
   }
 
   public static updateAccountName(accountNumber: number, newAccountName: string) {
-    const account = accountsTable.filter(
-      (account) => account.accountNumber === accountNumber
-    );
-    account[0].accountName = newAccountName;
+    console.log(typeof accountNumber);
+    this.database.map((account: AccountEntity) => {
+      if (account.accountNumber === accountNumber) {
+        account.accountName = newAccountName;
+      }
+    });
+    return this.database;
   }
 }

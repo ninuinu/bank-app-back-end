@@ -13,11 +13,10 @@ export function routes(app: Express) {
   /** ACCOUNT ROUTES **/
   app.get("/accounts", getAccounts);
   app.get("/account", getAccount);
-  app.post("/account", updateAccountName);
+  app.post("/accountName", updateAccountName);
 
   /** TRANSACTION ROUTES **/
   app.get("/transactions", getTransactions);
   app.get("/transaction", getTransaction);
-
 
 }
