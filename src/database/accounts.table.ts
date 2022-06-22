@@ -43,6 +43,13 @@ export let accountsTable: AccountEntity[] = [
     userId: 2451,
     currency: "EUR",
   },
+  {
+    accountNumber: 4037,
+    accountName: 'TJABBA',
+    balance: 34000,
+    userId: 5462,
+    currency: "CHF",
+  },
 ];
 
 

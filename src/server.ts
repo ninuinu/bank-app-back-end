@@ -1,4 +1,5 @@
 import http from "http";
+import cors from "cors";
 import express from "express";
 import bodyParser from "body-parser";
 import { routes } from "./routes";
@@ -6,7 +7,9 @@ import { routes } from "./routes";
 const app = express();
 const PORT = 6060;
 
-// Parse request
+app.use(cors({
+  origin: ["http://localhost:3000"]
+}))
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
