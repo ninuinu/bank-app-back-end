@@ -3,7 +3,7 @@ import { getUser } from "./controllers/users.controller";
 import { getAccounts, getAccount, updateAccountName } from "./controllers/accounts.controller";
 import {
   getTransaction,
-  getTransactions,
+  getTransactions
 } from "./controllers/transactions.controller";
 
 export function routes(app: Express) {

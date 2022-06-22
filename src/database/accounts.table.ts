@@ -9,47 +9,47 @@ export interface AccountEntity {
 export let accountsTable: AccountEntity[] = [
   {
     accountNumber: 12322,
-    accountName: 'Lönekonto',
+    accountName: "Lönekonto",
     balance: 345,
     userId: 2451,
-    currency: "SEK",
+    currency: "SEK"
 
   },
   {
     accountNumber: 2829,
-    accountName: 'Sparkonto',
+    accountName: "Sparkonto",
     balance: 2424,
     userId: 2451,
-    currency: "SEK",
+    currency: "SEK"
   },
   {
     accountNumber: 7777,
-    accountName: 'Krypto',
+    accountName: "Krypto",
     balance: 1.2,
     userId: 2451,
-    currency: "ETH",
+    currency: "ETH"
   },
   {
     accountNumber: 2022,
-    accountName: 'Semesterspar',
+    accountName: "Semesterspar",
     balance: 6756,
     userId: 2451,
-    currency: "USD",
+    currency: "USD"
   },
   {
     accountNumber: 1337,
-    accountName: 'Buffert',
+    accountName: "Buffert",
     balance: 345,
     userId: 2451,
-    currency: "EUR",
+    currency: "EUR"
   },
   {
     accountNumber: 4037,
-    accountName: 'TJABBA',
+    accountName: "TJABBA",
     balance: 34000,
     userId: 5462,
-    currency: "CHF",
-  },
+    currency: "CHF"
+  }
 ];
 
 

@@ -9,7 +9,7 @@ const PORT = 6060;
 
 app.use(cors({
   origin: ["http://localhost:3000"]
-}))
+}));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 

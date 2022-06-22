@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { AccountsService } from "../services/accounts.service";
-import { AccountEntity, accountsTable } from "../database/accounts.table";
+import { AccountEntity } from "../database/accounts.table";
 
 export function getAccounts(req: Request, res: Response) {
   try {
@@ -32,8 +32,6 @@ export function updateAccountName(req: Request, res: Response) {
   } catch (error: any) {
     return res.send(error);
   }
-
-
   return null;
 }
 

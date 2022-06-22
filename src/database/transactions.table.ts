@@ -6,7 +6,7 @@ export let transactionsTable = [
     counterparty: "Nordea",
     id: 1,
     iban: "AB24GHIJ02030425874392",
-    type: 'Deposit',
+    type: "Deposit"
   },
   {
     date: "2021-12-31",
@@ -15,7 +15,7 @@ export let transactionsTable = [
     counterparty: "Swedbank",
     id: 2,
     iban: "GB24GHIJ02030425874392",
-    type: 'Withdrawal'
+    type: "Withdrawal"
 
   },
   {
@@ -25,7 +25,7 @@ export let transactionsTable = [
     counterparty: "Nordea",
     id: 3,
     iban: "SE24GHIJ02030425874392",
-    type: 'Deposit',
+    type: "Deposit"
 
   },
   {
@@ -35,7 +35,7 @@ export let transactionsTable = [
     counterparty: "Nordea",
     id: 4,
     iban: "GE24GHIJ02030425874392",
-    type: 'Deposit'
+    type: "Deposit"
 
   },
   {
@@ -45,7 +45,7 @@ export let transactionsTable = [
     counterparty: "Patreon",
     id: 5,
     iban: "DA4GHIJ02030425874392",
-    type: 'Payment',
+    type: "Payment"
 
   },
   {
@@ -55,7 +55,7 @@ export let transactionsTable = [
     counterparty: "Swedbank",
     id: 6,
     iban: "AK24GHIJ02030425874392",
-    type: 'Withdrawal'
+    type: "Withdrawal"
 
   },
   {
@@ -65,7 +65,7 @@ export let transactionsTable = [
     counterparty: "SEB",
     id: 7,
     iban: "BF24GHIJ02030425874392",
-    type: 'Withdrawal',
+    type: "Withdrawal"
 
   },
   {
@@ -75,7 +75,7 @@ export let transactionsTable = [
     counterparty: "Danske Bank",
     id: 8,
     iban: "HB24GHIJ02030425874392",
-    type: 'Withdrawal',
+    type: "Withdrawal"
 
 
   },
@@ -86,7 +86,7 @@ export let transactionsTable = [
     counterparty: "SBAB",
     id: 9,
     iban: "RQ24GHIJ02030425874392",
-    type: 'Withdrawal',
+    type: "Withdrawal"
 
   }
 ];
