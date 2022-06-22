@@ -16,12 +16,22 @@ export class AccountsService {
   }
 
   public static updateAccountName(accountNumber: number, newAccountName: string) {
-    console.log(typeof accountNumber);
-    this.database.map((account: AccountEntity) => {
+    console.log(newAccountName);
+    console.log(accountNumber);
+    /*this.database.map((account: AccountEntity) => {
       if (account.accountNumber === accountNumber) {
-        account.accountName = newAccountName;
+       // account.accountName = newAccountName;
+ } });
+      */
+
+    for (var i:number = 0; i < this.database.length; i++) {
+      if (this.database[i].accountNumber === accountNumber) {
+        this.database[i].accountName = newAccountName;
       }
-    });
+    }
+/*
+      this.database.map(({accountName, ...account }) => ({ ...account, accountNumber: account.accountNumber === accountNumber ? accountName : newAccountName }));
+  */ console.log(this.database);
     return this.database;
   }
 }
