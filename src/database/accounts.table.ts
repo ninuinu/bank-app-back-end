@@ -1,6 +1,6 @@
 export interface AccountEntity {
-  accountNumber: number;
-  accountName: string;
+  number: number;
+  name: string;
   balance: number;
   userId: number;
   currency: string;
@@ -8,44 +8,44 @@ export interface AccountEntity {
 
 export let accountsTable: AccountEntity[] = [
   {
-    accountNumber: 12322,
-    accountName: "Lönekonto",
+    number: 12322,
+    name: "Lönekonto",
     balance: 345,
     userId: 2451,
     currency: "SEK"
 
   },
   {
-    accountNumber: 2829,
-    accountName: "Sparkonto",
+    number: 2829,
+    name: "Sparkonto",
     balance: 2424,
     userId: 2451,
     currency: "SEK"
   },
   {
-    accountNumber: 7777,
-    accountName: "Krypto",
+    number: 7777,
+    name: "Krypto",
     balance: 1.2,
     userId: 2451,
     currency: "ETH"
   },
   {
-    accountNumber: 2022,
-    accountName: "Semesterspar",
+    number: 2022,
+    name: "Semesterspar",
     balance: 6756,
     userId: 2451,
     currency: "USD"
   },
   {
-    accountNumber: 1337,
-    accountName: "Buffert",
+    number: 1337,
+    name: "Buffert",
     balance: 345,
     userId: 2451,
     currency: "EUR"
   },
   {
-    accountNumber: 4037,
-    accountName: "TJABBA",
+    number: 4037,
+    name: "TJABBA",
     balance: 34000,
     userId: 5462,
     currency: "CHF"

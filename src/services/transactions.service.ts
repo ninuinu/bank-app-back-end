@@ -1,19 +1,19 @@
-import { transactionsTable } from "../database/transactions.table";
+import { TransactionEntity, transactionsTable } from "../database/transactions.table";
 
 
 export class TransactionsService {
   static database = transactionsTable;
 
   public static getTransactions(accountNumber: number) {
-    const transactions = this.database.filter(
-      (transaction) => transaction.account === accountNumber
+    const transactions:TransactionEntity[] = this.database.filter(
+      (transaction:TransactionEntity) => transaction.account === accountNumber
     );
     return transactions;
   }
 
   public static getTransaction(transactionId: number) {
-    const transaction = this.database.filter(
-      (transaction) => transaction.id === transactionId
+    const transaction:TransactionEntity[] = this.database.filter(
+      (transaction:TransactionEntity) => transaction.id === transactionId
     );
     return transaction;
   }

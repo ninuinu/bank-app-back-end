@@ -11,7 +11,7 @@ export class AccountsService {
 
   public static getAccount(accountNumber: number) {
     return this.database.filter(
-      (account: AccountEntity) => account.accountNumber === accountNumber
+      (account: AccountEntity) => account.number === accountNumber
     );
   }
 
@@ -20,8 +20,8 @@ export class AccountsService {
     console.log(accountNumber);
 
     for (var i: number = 0; i < this.database.length; i++) {
-      if (this.database[i].accountNumber === accountNumber) {
-        this.database[i].accountName = newAccountName;
+      if (this.database[i].number === accountNumber) {
+        this.database[i].name = newAccountName;
       }
     }
     return this.database;

@@ -1,4 +1,14 @@
-export let usersTable = [
+
+export interface UsersEntity {
+    userId: number;
+    personalNumber: string;
+    firstName: string;
+    lastName: string;
+  }
+
+
+
+export let usersTable:UsersEntity[] = [
   {
     userId: 5462,
     personalNumber: "750341-9702",

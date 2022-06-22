@@ -25,9 +25,10 @@ export function getAccount(req: Request, res: Response) {
 // bonus
 export function updateAccountName(req: Request, res: Response) {
   try {
-    const accountNumber = req.query.accountNumber as string;
-    const accountName = req.query.accountName as string;
-    const accounts: AccountEntity[] = AccountsService.updateAccountName(parseInt(accountNumber), accountName);
+    const number = req.query.accountNumber as string;
+    console.log(req.query);
+    const name = req.query.accountName as string;
+    const accounts: AccountEntity[] = AccountsService.updateAccountName(parseInt(number), name);
     return res.send(accounts);
   } catch (error: any) {
     return res.send(error);
