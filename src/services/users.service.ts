@@ -5,7 +5,7 @@ import { usersTable } from "../database/users.table";
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
 const lodash = require('lodash');
-const jwt = require('jsonwebtoken');
+import jwt from "jsonwebtoken";
 
 export class UsersService {
   static database = usersTable;
@@ -41,8 +41,8 @@ export class UsersService {
       if (correctPassword) {
         const safeUser = lodash.omit(user, 'password');
 
-        const accessToken = jwt.sign(safeUser, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '30s'});
-        const refreshToken = jwt.sign(safeUser, process.env.REFRESH_TOKEN_SECRET);
+        const accessToken = jwt.sign(safeUser, process.env.ACCESS_TOKEN_SECRET as string, {expiresIn: '30s'});
+        const refreshToken = jwt.sign(safeUser, process.env.REFRESH_TOKEN_SECRET as string, {expiresIn: '72h'});
 
         this.refreshTokens.push(refreshToken);
 
@@ -57,32 +57,25 @@ export class UsersService {
     }
   }
 
-  public static createToken(refreshToken:any){
-    console.log("1\n");
+  public static async createToken(refreshToken:any){
     if(refreshToken=== null) {
-      console.log("2");
       return false;
     }
-    console.log("refreshToken:", refreshToken);
-    console.log("this.refreshTokens:", this.refreshTokens);
     if(!this.refreshTokens.includes(refreshToken)){
-      console.log("3");
       return false;
     }
-    jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (err:any,user:any) => {
-      console.log("4");
+    return jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET as string, (err:any,user:any) => {
       if(err){
-        console.log("5");
         return false;
       }
-      console.log("6");
-      const safeUser = lodash.omit(user, 'password');
-      console.log("USER I CREATE TOKEN", user);
-      const accessToken = jwt.sign(safeUser, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '30s'});
-      return {'accessToken': accessToken};
+      const safeUser = lodash.omit(user, ['password', 'iat', 'exp']);
+      const accessToken = jwt.sign(safeUser, process.env.ACCESS_TOKEN_SECRET as string, {expiresIn: '30s'});
+      return {'accessToken': accessToken}
     })
   }
 
-
-
+  public static deauthenticateUser(token:any){
+    this.refreshTokens = this.refreshTokens.filter(t => t !== token);
+    return "success";
+  }
 }

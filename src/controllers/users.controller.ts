@@ -13,7 +13,6 @@ export function getUser(req: Request, res: Response) {
 
 export function getUserByUserName(req: Request, res: Response) {
   try {
-    console.log("i getUserbyUserName");
 
     const userName = req.query.userName;
     const user = UsersService.getUserByUserName(String(userName));
@@ -38,10 +37,8 @@ export async function authenticateUser(req:Request, res:Response){
   try{
     const userName = req.query.userName;
     const password = req.query.password;
-    console.log("i authenticateUSer");
 
     const tokens = await UsersService.authenticateUser(String(userName), String(password));
-    console.log(tokens);
     if(tokens){
       return res.status(200).send(tokens);
     }
@@ -57,14 +54,30 @@ export async function authenticateUser(req:Request, res:Response){
 export async function createToken(req: Request, res: Response) {
   try {
     const token = req.query.token;
-    const user = UsersService.createToken(token);
+    const accessToken = await UsersService.createToken(String(token));
+    if(accessToken){
+      return res.status(200).send(accessToken);
+    }
+    else{
+      return res.status(401).send();
+    }
+  } catch (error: any) {
+    return res.send(error);
+  }
+}
+
+export function deauthenticateUser(req:Request, res:Response){
+  try{
+    const token = req.query.token
+    const user = UsersService.deauthenticateUser(token);
     if(user){
       return res.status(200).send(user);
     }
     else{
       return res.status(401).send();
     }
-  } catch (error: any) {
+  }
+  catch(error:any){
     return res.send(error);
   }
 }

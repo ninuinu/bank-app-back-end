@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 
 const jwt = require('jsonwebtoken');
 
-export function authenticateToken(req:Request, res:Response, next:any){
+export function authenticateToken(req:any, res:any, next:any){
   console.log(req);
   const token = req.headers['authorization'] as string;
   if (token === null){
@@ -10,7 +10,7 @@ export function authenticateToken(req:Request, res:Response, next:any){
   }
   jwt.verify(token,process.env.ACCESS_TOKEN_SECRET, (err:any, user:any)=>{
     if(err) return res.status(403).send();
-    req.body = user;
+    req.user = user;
     next();
   });
 

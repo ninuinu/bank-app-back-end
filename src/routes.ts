@@ -3,7 +3,7 @@ import {
   getUser,
   createUser,
   authenticateUser,
-  getUserByUserName, createToken
+  getUserByUserName, createToken, deauthenticateUser
 } from "./controllers/users.controller";
 import { getAccounts, getAccount, updateAccountName } from "./controllers/accounts.controller"
 import { authenticateToken} from "./middleware/authentication.middleware";
@@ -20,6 +20,7 @@ export function routes(app: Express) {
   app.post("/token",createToken);
   app.post("/signUp", createUser);
   app.post("/logIn", authenticateUser);
+  app.delete("/logOut", deauthenticateUser);
 
 
   /** ACCOUNT ROUTES **/
