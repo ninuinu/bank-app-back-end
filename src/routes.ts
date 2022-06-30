@@ -1,5 +1,5 @@
 import { Express } from "express";
-import { getUser, createUserToken } from "./controllers/users.controller";
+import { getUser, createUser } from "./controllers/users.controller";
 import { getAccounts, getAccount, updateAccountName } from "./controllers/accounts.controller";
 import {
   getTransaction,
@@ -9,6 +9,8 @@ import {
 export function routes(app: Express) {
   /** USER ROUTES **/
   app.get("/user", getUser);
+  app.post("/signUp", createUser);
+
 
   /** ACCOUNT ROUTES **/
   app.get("/accounts", getAccounts);
@@ -19,6 +21,5 @@ export function routes(app: Express) {
   app.get("/transactions", getTransactions);
   app.get("/transaction", getTransaction);
 
-  app.post("/login", createUserToken);
 
 }

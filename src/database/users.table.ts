@@ -1,24 +1,21 @@
 
 export interface UsersEntity {
-    userId: number;
-    personalNumber: string;
-    firstName: string;
-    lastName: string;
+    id: string;
+    name: string;
+    password: string;
   }
 
 
 
 export let usersTable:UsersEntity[] = [
   {
-    userId: 5462,
-    personalNumber: "750341-9702",
-    firstName: "Maria",
-    lastName: "Berg"
+    id: "5462",
+    name: "MariaBerg",
+    password: "Berg"
   },
   {
-    userId: 2451,
-    personalNumber: "620341-8732",
-    firstName: "Ragnar",
-    lastName: "Petterson"
+    id: "2451",
+    name: "RagnarPetterson",
+    password: "Petterson"
   }
 ];
