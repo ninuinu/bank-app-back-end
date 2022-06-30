@@ -1,8 +1,11 @@
+require('dotenv').config()
+
 import { usersTable } from "../database/users.table";
 import { constants } from "crypto";
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
 const lodash = require('lodash');
+const jwt = require('jsonwebtoken');
 
 export class UsersService {
   static database = usersTable;
@@ -32,7 +35,8 @@ export class UsersService {
       console.log("correctPassword: ",correctPassword);
       if (correctPassword) {
         const safeUser = lodash.omit(user, 'password');
-        return safeUser;
+        const accessToken = jwt.sign(safeUser, process.env.ACCESS_TOKEN_SECRET);
+        return accessToken;
       }
       else{
         return false;

@@ -26,10 +26,10 @@ export async function authenticateUser(req:Request, res:Response){
   try{
     const userName = req.query.userName;
     const password = req.query.password;
-    const user = await UsersService.authenticateUser(String(userName), String(password));
-    console.log(user);
-    if(user){
-      return res.status(200).send({'user': user});
+    const accessToken = await UsersService.authenticateUser(String(userName), String(password));
+    console.log(accessToken);
+    if(accessToken){
+      return res.status(200).send({'accessToken': accessToken});
     }
     else{
       return res.status(401).send();
