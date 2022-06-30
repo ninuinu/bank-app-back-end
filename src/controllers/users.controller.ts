@@ -10,3 +10,11 @@ export function getUser(req: Request, res: Response) {
     return res.send(error);
   }
 }
+
+export function createUserToken(req: Request, res: Response) {
+  try {
+    return
+  } catch (error: any) {
+    return res.send(error);
+  }
+}

@@ -7,4 +7,8 @@ export class UsersService {
     const user = this.database.filter((user) => user.userId === userId);
     return user;
   }
+
+  public static createUserToken(){
+    return
+  }
 }
