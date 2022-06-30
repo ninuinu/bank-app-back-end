@@ -38,16 +38,33 @@ export async function authenticateUser(req:Request, res:Response){
   try{
     const userName = req.query.userName;
     const password = req.query.password;
-    const accessToken = await UsersService.authenticateUser(String(userName), String(password));
-    console.log(accessToken);
-    if(accessToken){
-      return res.status(200).send({'accessToken': accessToken});
+    console.log("i authenticateUSer");
+
+    const tokens = await UsersService.authenticateUser(String(userName), String(password));
+    console.log(tokens);
+    if(tokens){
+      return res.status(200).send(tokens);
     }
     else{
       return res.status(401).send();
     }
   }
   catch (error:any){
+    return res.send(error);
+  }
+}
+
+export async function createToken(req: Request, res: Response) {
+  try {
+    const token = req.query.token;
+    const user = UsersService.createToken(token);
+    if(user){
+      return res.status(200).send(user);
+    }
+    else{
+      return res.status(401).send();
+    }
+  } catch (error: any) {
     return res.send(error);
   }
 }
