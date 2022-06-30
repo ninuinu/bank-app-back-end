@@ -1,5 +1,5 @@
 import { Express } from "express";
-import { getUser, createUser } from "./controllers/users.controller";
+import { getUser, createUser, authenticateUser } from "./controllers/users.controller";
 import { getAccounts, getAccount, updateAccountName } from "./controllers/accounts.controller";
 import {
   getTransaction,
@@ -10,6 +10,7 @@ export function routes(app: Express) {
   /** USER ROUTES **/
   app.get("/user", getUser);
   app.post("/signUp", createUser);
+  app.post("/logIn", authenticateUser);
 
 
   /** ACCOUNT ROUTES **/

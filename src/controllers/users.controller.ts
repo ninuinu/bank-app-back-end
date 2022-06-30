@@ -15,10 +15,27 @@ export async function createUser(req: Request, res: Response) {
   try {
     const userName = req.query.userName;
     const password = req.query.password;
-    await UsersService.createUser(userName, password);
-    return
-
+    await UsersService.createUser(String(userName), String(password));
+    return res.status(201).send('user created');
   } catch (error: any) {
+    return res.send(error);
+  }
+}
+
+export async function authenticateUser(req:Request, res:Response){
+  try{
+    const userName = req.query.userName;
+    const password = req.query.password;
+    const user = await UsersService.authenticateUser(String(userName), String(password));
+    console.log(user);
+    if(user){
+      return res.status(200).send({'user': user});
+    }
+    else{
+      return res.status(401).send();
+    }
+  }
+  catch (error:any){
     return res.send(error);
   }
 }
