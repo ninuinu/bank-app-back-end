@@ -1,7 +1,5 @@
 require('dotenv').config()
-
 import { usersTable } from "../database/users.table";
-import { constants } from "crypto";
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
 const lodash = require('lodash');
@@ -15,6 +13,12 @@ export class UsersService {
     const user = this.database.filter((user) => user.id === userId);
     return user;
   }
+
+  public static getUserByUserName(userName:string){
+    const user = this.database.filter((user) => user.name === userName);
+    return user;
+  }
+
 
   public static async createUser(userName: any, password: any){
 
@@ -32,7 +36,6 @@ export class UsersService {
 
     if (user) {
       const correctPassword = await bcrypt.compare(password, user.password);
-      console.log("correctPassword: ",correctPassword);
       if (correctPassword) {
         const safeUser = lodash.omit(user, 'password');
         const accessToken = jwt.sign(safeUser, process.env.ACCESS_TOKEN_SECRET);
@@ -42,6 +45,10 @@ export class UsersService {
         return false;
       }
     }
-    return false;
+    else{
+      return false;
+    }
   }
+
+
 }

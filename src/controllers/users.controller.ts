@@ -11,6 +11,18 @@ export function getUser(req: Request, res: Response) {
   }
 }
 
+export function getUserByUserName(req: Request, res: Response) {
+  try {
+    console.log("i getUserbyUserName");
+
+    const userName = req.query.userName;
+    const user = UsersService.getUserByUserName(String(userName));
+    return res.send(user);
+  } catch (error: any) {
+    return res.send(error);
+  }
+}
+
 export async function createUser(req: Request, res: Response) {
   try {
     const userName = req.query.userName;
@@ -39,3 +51,4 @@ export async function authenticateUser(req:Request, res:Response){
     return res.send(error);
   }
 }
+

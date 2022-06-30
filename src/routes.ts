@@ -1,6 +1,12 @@
 import { Express } from "express";
-import { getUser, createUser, authenticateUser } from "./controllers/users.controller";
-import { getAccounts, getAccount, updateAccountName } from "./controllers/accounts.controller";
+import {
+  getUser,
+  createUser,
+  authenticateUser,
+  getUserByUserName
+} from "./controllers/users.controller";
+import { getAccounts, getAccount, updateAccountName } from "./controllers/accounts.controller"
+import { authenticateToken} from "./middleware/authentication.middleware";
 import {
   getTransaction,
   getTransactions
@@ -9,6 +15,8 @@ import {
 export function routes(app: Express) {
   /** USER ROUTES **/
   app.get("/user", getUser);
+  app.get("/userByUserName", authenticateToken, getUserByUserName);
+
   app.post("/signUp", createUser);
   app.post("/logIn", authenticateUser);
 
