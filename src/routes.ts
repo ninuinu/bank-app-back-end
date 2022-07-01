@@ -11,17 +11,24 @@ import {
   getTransaction,
   getTransactions
 } from "./controllers/transactions.controller";
+import { createUserSession, getUserSession, deleteUserSession } from "./controllers/sessions.controller";
 
 export function routes(app: Express) {
   /** USER ROUTES **/
+  app.post("/user", createUser);
   app.get("/user", getUser);
+
+  /** FOR TESTING PURPOSES **/
   app.get("/userByUserName", authenticateToken, getUserByUserName);
-
   app.post("/token",createToken);
-  app.post("/signUp", createUser);
-  app.post("/logIn", authenticateUser);
-  app.delete("/logOut", deauthenticateUser);
+//  app.post("/signUp", createUser);
+//  app.post("/logIn", authenticateUser);
+//  app.delete("/logOut", deauthenticateUser);
 
+  /** SESSION ROUTES **/
+  app.post("/session", createUserSession);
+  app.get("/session", getUserSession);
+  app.delete("/session", deleteUserSession);
 
   /** ACCOUNT ROUTES **/
   app.get("/accounts", getAccounts);
