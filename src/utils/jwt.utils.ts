@@ -1,13 +1,10 @@
 import jwt from "jsonwebtoken";
 import "dotenv/config.js";
-import crypto from "crypto";
-
 
 export function signJWT(token:any, key:string){
   try{
     return jwt.sign(token, key);
   }
-
   catch (err:any){
     return { valid:false, validToken: null };
   }

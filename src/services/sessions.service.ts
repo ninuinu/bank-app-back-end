@@ -1,5 +1,7 @@
 import crypto from "crypto";
 import bcrypt from "bcrypt";
+import { UsersService } from "./users.service";
+import { UsersEntity } from "../database/users.table";
 
 export class SessionsService {
 
@@ -10,8 +12,8 @@ export class SessionsService {
   const salt = await bcrypt.genSalt();
   const hashedPassword = await bcrypt.hash(password, salt);
 
-  const user = {id: userId, name: userName, password: hashedPassword}
-  this.database.push(user);
+  const user = {name: userName, password: hashedPassword}
+  UsersService.database.push(user);
   }
   public static getUserSession(){
 
