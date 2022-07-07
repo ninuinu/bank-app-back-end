@@ -14,10 +14,8 @@ export async function createUserSession(req: Request, res: Response){
     // add to cookies
 
 
+    const password = req.query.password;
     const userName = req.query.userName;
-
-
-
 
     await UsersService.createUser(String(userName), String(password));
     return res.status(201).send('user created');
