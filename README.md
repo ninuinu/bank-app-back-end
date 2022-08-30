@@ -1,6 +1,6 @@
 # bank-app-back-end
 
-This the repository containing all code necessary to run the back-end of the bank app webb application. The back-end is node.js using Express written in Typescript. 
+This repository contains all code necessary to run the back-end of the bank app webb application. The back-end is node.js using Express written in Typescript. 
 ## Getting Started
 Download the project folder, compile it, and navigate to the root of the project directory. Run the following command to download all necessary dependencies:
 ```
